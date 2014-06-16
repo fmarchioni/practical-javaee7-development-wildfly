@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <head>
+        <title>Signup account</title>
+    </head>
+    <body>
+        <h:form prependId="false">
+            <h1>Signup Account</h1>
+             Name: <br/>
+             <h:inputText id="name" value="#{flowScope.name}" /> <br/>
+             Surname: <br/>
+             <h:inputText id="surname" value="#{flowScope.surname}" /><br/> 
+             Email: <br/>
+             <h:inputText id="email" value="#{flowScope.email}" />   <br/> 
+   
+             <h:commandButton id="page2" value="next" action="signup2" /> 
+
+        </h:form>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+.default {
+	padding: 5px;
+	text-align: left;
+	font-family: Arial, Verdana, sans-serif;
+	border: 1px solid #000;
+	border-bottom: 1;
+	background: #26EE72;
+}
+
+.buttons {
+	padding: 5px;
+	text-align: left;
+	font-family: Arial, Verdana, sans-serif;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+.table-header {
+	text-align: center;
+	background: none repeat scroll 0 0 #FF0000;
+	border-bottom: 1px solid #BBBBBB;
+	padding: 16px;
+}
+
+.table-odd-row {
+	text-align: center;
+	background: none repeat scroll 0 0 #FFFFFFF;
+	border-top: 1px solid #26EE72;
+}
+
+.table-even-row {
+	text-align: center;
+	background: none repeat scroll 0 0 #9F9A9A;
+	border-top: 1px solid #00FF00;
+}

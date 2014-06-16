@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:mc="http://xmlns.jcp.org/jsf/composite/mycomponents">
+
+    <body>
+
+        <ui:composition template="/templates/template.xhtml">
+
+            <ui:define name="content">
+                <mc:signup name="#{user.name}" 
+                          surname="#{user.surname}" 
+                          email="#{user.email}" 
+                          actionListener="#{manager.save()}"/>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
