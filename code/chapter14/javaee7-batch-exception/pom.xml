@@ -46,14 +46,16 @@
 
 		<dependency>
 			<groupId>org.jboss.spec.javax.json</groupId>
-			<artifactId>jboss-json-api_1.0_spec</artifactId>		 
+			<artifactId>jboss-json-api_1.0_spec</artifactId>	
+			<scope>provided</scope>			
 		</dependency>
 
  
 
 		<dependency>
 			<groupId>org.jboss.spec.javax.batch</groupId>
-			<artifactId>jboss-batch-api_1.0_spec</artifactId>			 
+			<artifactId>jboss-batch-api_1.0_spec</artifactId>
+			<scope>provided</scope>			
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.ejb</groupId>
@@ -66,7 +68,7 @@
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
-		 
+			<scope>provided</scope>		 
 		</dependency>
 		<!-- Import the Common Annotations API (JSR-250) -->
 		 
@@ -74,7 +76,7 @@
 		<dependency>
 			<groupId>org.jboss.spec.javax.servlet</groupId>
 			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
-			 
+			<scope>provided</scope>			 
 		</dependency>
 	</dependencies>
 
@@ -84,7 +86,6 @@
 	<build>
 
 		<finalName>${project.artifactId}</finalName>
-
 		<plugins>
     <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

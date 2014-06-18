@@ -56,6 +56,7 @@
 		<dependency>
 			<groupId>org.jboss.ejb3</groupId>
 			<artifactId>jboss-ejb3-ext-api</artifactId>
+			<scope>provided</scope>			
 			<version>2.1.0</version>
 		</dependency>
 	</dependencies>

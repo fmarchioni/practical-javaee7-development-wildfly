@@ -1,20 +1,12 @@
-package com.sample;
+package com.itbuzzpress.chapter16.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-
-import javax.annotation.Resource;
-import javax.ejb.EJB;
-
-import javax.enterprise.concurrent.ManagedExecutorService;
-import javax.servlet.AsyncContext;
-import javax.servlet.AsyncEvent;
-import javax.servlet.AsyncListener;
 import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.*;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.HttpMethodConstraint;
+import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

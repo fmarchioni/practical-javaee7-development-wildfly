@@ -53,9 +53,6 @@
 	 
 	</dependencies>
 
-
-
-
 	<build>
 
 		<finalName>${project.artifactId}</finalName>

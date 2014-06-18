@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>org.jboss.spec.javax.enterprise.concurrent</groupId>
 			<artifactId>jboss-concurrency-api_1.0_spec</artifactId>
-		 
+			<scope>provided</scope>		 
 		</dependency>
 
 		 
@@ -62,6 +62,7 @@
 			<artifactId>jboss-annotations-api_1.2_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
 		<!-- Import the Servlet API -->
 		<dependency>
 			<groupId>org.jboss.spec.javax.servlet</groupId>
