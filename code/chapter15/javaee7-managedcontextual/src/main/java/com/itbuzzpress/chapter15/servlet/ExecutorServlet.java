@@ -28,7 +28,6 @@ public class ExecutorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 Subject subject = 
 				 Subject.getSubject(AccessController.getContext());
-		System.out.println(">>>>>Subject is "+subject);
 		if (subject != null)
 			System.out.println("getPrincipals is "+subject.getPrincipals());
 		

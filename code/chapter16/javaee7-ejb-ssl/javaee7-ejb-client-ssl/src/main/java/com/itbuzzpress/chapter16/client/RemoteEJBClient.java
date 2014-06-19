@@ -53,7 +53,7 @@ public class RemoteEJBClient {
 		final Context context = new InitialContext(jndiProperties);
 
 		return (Account) context
-				.lookup("ejb:/javaee7-ejb-server-ssl/AccountEJB!com.itbuzzpress.chapter4.ejb.Account?stateful");
+				.lookup("ejb:/javaee7-ejb-server-ssl/AccountEJB!com.itbuzzpress.chapter16.ejb.Account?stateful");
 	}
 
 	private static Calculator lookupCalculatorEJB() throws NamingException {
@@ -63,6 +63,6 @@ public class RemoteEJBClient {
 		final Context context = new InitialContext(jndiProperties);
 
 		return (Calculator) context
-				.lookup("ejb:/javaee7-ejb-server-ssl/CalculatorEJB!com.itbuzzpress.chapter4.ejb.Calculator");
+				.lookup("ejb:/javaee7-ejb-server-ssl/CalculatorEJB!com.itbuzzpress.chapter16.ejb.Calculator");
 	}
 }

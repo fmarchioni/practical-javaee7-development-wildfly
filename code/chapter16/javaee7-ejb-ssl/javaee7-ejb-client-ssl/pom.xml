@@ -15,6 +15,7 @@
 		<version.compiler.plugin>3.1</version.compiler.plugin>
 		<version.exec.plugin>1.2.1</version.exec.plugin>
 		<version.war.plugin>2.1.1</version.war.plugin>
+		<wildfly.home>C:\wildfly-8.0.0.Final</wildfly.home>
 
 		<!-- maven-compiler-plugin -->
 		<maven.compiler.target>1.7</maven.compiler.target>
