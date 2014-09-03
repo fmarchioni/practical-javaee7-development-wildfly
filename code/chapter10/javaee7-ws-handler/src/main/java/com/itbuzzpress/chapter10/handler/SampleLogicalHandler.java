@@ -52,8 +52,5 @@ public class  SampleLogicalHandler implements LogicalHandler {
 		//. . .
 	}
 	
-	public static void main(String args[]) {
-		String s = "John Smith1000";
-		System.out.println(s.replaceAll("1000", "2000"));
-	}
+ 
 }
