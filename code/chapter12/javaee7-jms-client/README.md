@@ -15,4 +15,8 @@ mvn clean install wildfly:undeploy
 ###### WildFly 10 users
 Note: If you are running WildFly 10 and above, you should update the its property in pom.xml:
 
-```<version.wildfly>10.0.0.Final</version.wildfly>```
+```xml
+<version.wildfly>10.0.0.Final</version.wildfly>
+```
+
+ 
