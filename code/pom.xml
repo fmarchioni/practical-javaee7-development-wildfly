@@ -1,30 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.itbuzzpress.root</groupId>
-        <artifactId>javaee7-root</artifactId>
-        <version>1.0</version>
-    </parent>
-    <groupId>com.itbuzzpress.chapter4</groupId>
-    <artifactId>javaee7-ejb-server-timer</artifactId>
+    <groupId>com.itbuzzpress.root</groupId>
+    <artifactId>javaee7-root</artifactId>
     <version>1.0</version>
-    <packaging>ejb</packaging>
-    <name>EJB 3.2 server with Timer</name>
+    <packaging>pom</packaging>
+    <name>Root Project</name>
     <properties>
-        <version.compiler.plugin>3.1</version.compiler.plugin>
-        <version.ejb.plugin>2.3</version.ejb.plugin>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <dependencies>
-        <!-- Import the EJB 3.2 API, we use provided scope as the API is included 
-			in JBoss WildFly -->
-        <dependency>
-            <groupId>org.jboss.spec.javax.ejb</groupId>
-            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <repositories>
+        <repository>
+            <id>JBoss Repository</id>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>wildfly-javaee7-with-tools</artifactId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>10.0.0.Final</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
@@ -41,12 +42,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
-                <version>2.3</version>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.0.2.Final</version>
                 <configuration>
-                    <ejbVersion>3.2</ejbVersion>
-                    <generateClient>true</generateClient>
+                    <filename>${project.build.finalName}.war</filename>
                 </configuration>
             </plugin>
         </plugins>

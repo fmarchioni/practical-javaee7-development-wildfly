@@ -1,187 +1,129 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.itbuzzpress.chapter8</groupId>
-	<artifactId>javaee7-test</artifactId>
-	<packaging>war</packaging>
-	<version>1.0.0.Beta2</version>
-	<name>Arquillian Test</name>
-	<url>http://www.itbuzzpress.com</url>
-
-	<properties>
-
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<version.jboss.bom>8.0.0.Final</version.jboss.bom>
-		<version.arquillian.container>8.0.0.Final</version.arquillian.container>
- 
-		<!-- other plugin versions -->
-		<version.compiler.plugin>3.1</version.compiler.plugin>
-		<version.surefire.plugin>2.4.3</version.surefire.plugin>
-		<version.war.plugin>2.1.1</version.war.plugin>
-	</properties>
-	
-	<repositories>
-		<repository>
-			<id>JBoss Repository</id>
-			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
-		</repository>
-	</repositories>
-	
-
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.wildfly.bom</groupId>
-				<artifactId>jboss-javaee-7.0-with-tools</artifactId>
-				<version>${version.jboss.bom}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.wildfly.bom</groupId>
-				<artifactId>jboss-javaee-7.0-with-hibernate</artifactId>
-				<version>${version.jboss.bom}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>org.jboss.spec.javax.ejb</groupId>
-			<artifactId>jboss-ejb-api_3.2_spec</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-
-		<!-- Import the CDI API -->
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.spec.javax.servlet</groupId>
-			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
-		<!-- Optional, but highly recommended -->
-		<!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) 
-			JPA from JUnit/TestNG -->
-		<dependency>
-			<groupId>org.jboss.arquillian.junit</groupId>
-			<artifactId>arquillian-junit-container</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.arquillian.protocol</groupId>
-			<artifactId>arquillian-protocol-servlet</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
-
-
-
-	<build>
-
-		<finalName>${project.artifactId}</finalName>
-
-		<plugins>
-
-			<plugin>
-				<groupId>org.wildfly.plugins</groupId>
-				<artifactId>wildfly-maven-plugin</artifactId>
-				<version>1.0.2.Final</version>	
-			</plugin>
-		</plugins>
-
-
-	</build>
-	<profiles>
-		<profile>
-			<!-- The default profile skips all tests, though you can tune it to run 
-				just unit tests based on a custom pattern -->
-			<!-- Seperate profiles are provided for running all tests, including Arquillian 
-				tests that execute in the specified container -->
-			<id>default</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>${version.surefire.plugin}</version>
-						<configuration>
-							<skip>true</skip>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
-
-			<!-- An optional Arquillian testing profile that executes tests in your 
-				WildFly instance -->
-			<!-- This profile will start a new WildFly instance, and execute the test, 
-				shutting it down when done -->
-			<!-- Run with: mvn clean test -Parq-wildfly-managed -->
-			<id>arq-wildfly-managed</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.wildfly</groupId>
-					<artifactId>wildfly-arquillian-container-managed</artifactId>
-					<version>${version.arquillian.container}</version>
-					<scope>test</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-
-		<profile>
-			<!-- An optional Arquillian testing profile that executes tests in a remote 
-				WildFly instance -->
-			<!-- Run with: mvn clean test -Parq-wildfly-remote -->
-			<id>arq-wildfly-remote</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.wildfly</groupId>
-					<artifactId>wildfly-arquillian-container-remote</artifactId>
-					<version>${version.arquillian.container}</version>
-					<scope>test</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-		
-	<profile>
-    <id>arquillian-openshift-express</id>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.itbuzzpress.root</groupId>
+        <artifactId>javaee7-root</artifactId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.itbuzzpress.chapter8</groupId>
+    <artifactId>javaee7-test</artifactId>
+    <packaging>war</packaging>
+    <version>1.0.0.Beta2</version>
+    <name>Arquillian Test</name>
+    <url>http://www.itbuzzpress.com</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.arquillian.container>8.0.0.Final</version.arquillian.container>
+        <!-- other plugin versions -->
+        <version.compiler.plugin>3.1</version.compiler.plugin>
+        <version.surefire.plugin>2.4.3</version.surefire.plugin>
+        <version.war.plugin>2.1.1</version.war.plugin>
+    </properties>
     <dependencies>
-
         <dependency>
-            <groupId>org.jboss.arquillian.container</groupId>
-            <artifactId>arquillian-openshift-express</artifactId>
-			<version>1.0.2.Final</version>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Import the CDI API -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <!-- Optional, but highly recommended -->
+        <!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) 
+			JPA from JUnit/TestNG -->
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
-</profile>
-
-	</profiles>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+    <profiles>
+        <profile>
+            <!-- The default profile skips all tests, though you can tune it to run 
+				just unit tests based on a custom pattern -->
+            <!-- Seperate profiles are provided for running all tests, including Arquillian 
+				tests that execute in the specified container -->
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${version.surefire.plugin}</version>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!-- An optional Arquillian testing profile that executes tests in your 
+				WildFly instance -->
+            <!-- This profile will start a new WildFly instance, and execute the test, 
+				shutting it down when done -->
+            <!-- Run with: mvn clean test -Parq-wildfly-managed -->
+            <id>arq-wildfly-managed</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-arquillian-container-managed</artifactId>
+                    <version>${version.arquillian.container}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <!-- An optional Arquillian testing profile that executes tests in a remote 
+				WildFly instance -->
+            <!-- Run with: mvn clean test -Parq-wildfly-remote -->
+            <id>arq-wildfly-remote</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly</groupId>
+                    <artifactId>wildfly-arquillian-container-remote</artifactId>
+                    <version>${version.arquillian.container}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>arquillian-openshift-express</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-openshift-express</artifactId>
+                    <version>1.0.2.Final</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>
