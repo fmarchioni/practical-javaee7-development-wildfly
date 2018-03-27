@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to the Lottery Game</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body onload="getRandomValues()">
+        <h2>Welcome to the Lottery Game</h2>
+        <table>
+            <tr>
+                <td>Number Extracted: </td><td>&nbsp;<span id="number"></span></td>
+            </tr>
+             
+        </table>
+        <script>
+            function getRandomValues() {
+                var source = new EventSource("rest/events/");
+                source.addEventListener('lottery', function (event) {
+                    document.getElementById("number").innerHTML = event.data;
+                }, false);
+            }
+        </script>
+    </body>
+</html>
