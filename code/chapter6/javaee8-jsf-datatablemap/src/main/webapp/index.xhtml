@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable value="#{countryBean.map}" var="c" border="1">
+                <h:column>
+                    <f:facet name="header">Country</f:facet>
+                        #{c.key}             
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Capital</f:facet>
+                        #{c.value.capital}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Continent</f:facet>
+                        #{c.value.continent}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Language</f:facet>
+                        #{c.value.language}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Population</f:facet>
+                        #{c.value.population}
+                </h:column>
+                
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
