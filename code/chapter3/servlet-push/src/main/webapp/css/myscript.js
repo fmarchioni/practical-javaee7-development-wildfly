@@ -1,4 +1,6 @@
-
 <script>
-document.write("Hello World!");
+function hello() {
+	alert("Hello World!");
+}
 </script>
+ 
