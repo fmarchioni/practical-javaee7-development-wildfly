@@ -1,0 +1,34 @@
+#Script to create Elytron keystore-trust-manager-server-ssl-context using a custom File System Realm containing an user belonging to "employee" group
+
+# Create File System Realm
+
+/subsystem=elytron/filesystem-realm=demoFsRealm:add(path=demofs-realm-users,relative-to=jboss.server.config.dir)
+/subsystem=elytron/filesystem-realm=demoFsRealm:add-identity(identity=ejbuser)
+/subsystem=elytron/filesystem-realm=demoFsRealm:set-password(identity=ejbuser,clear={password="password123"})
+/subsystem=elytron/filesystem-realm=demoFsRealm:add-identity-attribute(identity=ejbuser,name=Roles, value=["employee"])
+/subsystem=elytron/simple-role-decoder=from-roles-attribute:add(attribute=Roles)
+/subsystem="elytron"/security-domain="fsSD":add(default-realm="demoFsRealm",permission-mapper="default-permission-mapper",realms=[{realm="demoFsRealm",role-decoder="from-roles-attribute"},{realm="local"}])
+/subsystem="elytron"/sasl-authentication-factory="fs-application-sasl-authentication":add(mechanism-configurations=[{mechanism-name="JBOSS-LOCAL-USER",realm-mapper="local"},{mechanism-name="DIGEST-MD5",mechanism-realm-configurations=[{realm-name="demoFsRealm"}]}],sasl-server-factory="configured",security-domain="fsSD")
+
+# Configure ejb3 subsystem to use File System Realm         
+
+/subsystem=ejb3/application-security-domain=other:remove()
+/subsystem=ejb3/application-security-domain=other:add(security-domain=fsSD)
+
+# Configure keystores and truststores
+
+/subsystem=elytron/key-store=server-key-store:add(path=server.keystore, relative-to=jboss.server.config.dir, credential-reference={clear-text=123456}, type=JKS)
+/subsystem=elytron/key-store=server-trust-store:add(path=server.truststore, relative-to=jboss.server.config.dir, credential-reference={clear-text=123456}, type=JKS)
+/subsystem=elytron/key-manager=example-key-manager:add(key-store=server-key-store, credential-reference={clear-text=123456})
+/subsystem=elytron/trust-manager=example-trust-manager:add(key-store=server-trust-store)
+/subsystem=elytron/server-ssl-context=example-ssl-context:add(trust-manager=example-trust-manager, key-manager=example-key-manager, need-client-auth=true, want-client-auth=true)
+
+
+# Configure elytron to use SASL authentication from our fs authentication factory
+
+batch
+/subsystem=undertow/server=default-server/https-listener=https:undefine-attribute(name=security-realm)
+/subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=ssl-context,value=example-ssl-context)
+run-batch
+/subsystem=remoting/http-connector=https-remoting-connector:add(connector-ref=https,sasl-authentication-factory=fs-application-sasl-authentication)
+reload
