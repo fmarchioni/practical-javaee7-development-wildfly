@@ -8,8 +8,8 @@
     <groupId>com.itbuzzpress.chapter9</groupId>
     <artifactId>javaee7-websocket-async</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0.Beta2</version>
-    <name>Websocket Handler Demo</name>
+    <version>1.0.0</version>
+    <name>Websocket Async Demo</name>
     <url>http://www.itbuzzpress.com</url>
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

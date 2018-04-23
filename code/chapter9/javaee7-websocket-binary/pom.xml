@@ -8,7 +8,7 @@
     <groupId>com.itbuzzpress.chapter9</groupId>
     <artifactId>javaee7-websocket-binary</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0.Beta2</version>
+    <version>1.0.0</version>
     <name>WebSocket Demo featuring binary data</name>
     <url>http://www.itbuzzpress.com</url>
     <properties>

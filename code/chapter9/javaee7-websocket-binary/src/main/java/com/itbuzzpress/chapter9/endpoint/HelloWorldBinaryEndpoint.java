@@ -1,9 +1,8 @@
 package com.itbuzzpress.chapter9.endpoint;
 
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+ 
 import java.nio.ByteBuffer;
 
 import javax.imageio.ImageIO;
@@ -31,10 +30,14 @@ public class HelloWorldBinaryEndpoint {
 
 			BufferedImage image = ImageIO.read(fi);
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+	               
 			ImageIO.write(image, "png", baos);
 			byte[] byteArray = baos.toByteArray();
 			buf = ByteBuffer.wrap(byteArray);
 			System.out.println("Sent binary " + byteArray.length);
+        
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
