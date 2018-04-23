@@ -40,8 +40,8 @@ public class RemoteEJBClient {
 
 	private static Account lookupAccountEJB() throws NamingException {
 		final Hashtable jndiProperties = new Hashtable();
-		jndiProperties.put(Context.URL_PKG_PREFIXES,
-				"org.jboss.ejb.client.naming");
+                jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY,
+                 "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		final Context context = new InitialContext(jndiProperties);
 
 		return (Account) context
@@ -50,8 +50,8 @@ public class RemoteEJBClient {
 
 	private static Calculator lookupCalculatorEJB() throws NamingException {
 		final Hashtable jndiProperties = new Hashtable();
-		jndiProperties.put(Context.URL_PKG_PREFIXES,
-				"org.jboss.ejb.client.naming");
+		jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY,
+                 "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		final Context context = new InitialContext(jndiProperties);
 
 		return (Calculator) context
