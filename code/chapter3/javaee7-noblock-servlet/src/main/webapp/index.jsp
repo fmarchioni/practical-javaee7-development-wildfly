@@ -10,8 +10,8 @@
         <br>
         <div style="text-align: center;">
 			<form action="noblock" method="post">
-				<input name="field1" value="dummydata" type="text">
-				<textarea rows="10" cols="50" name="long comment">Enter text here...</textarea>
+				<input name="field1" value="dummydata" type="text"> <br />
+				<textarea rows="10" cols="50" name="long comment">Enter text here...</textarea> <br />
 				<input type="submit">
 			</form>
         </div>
