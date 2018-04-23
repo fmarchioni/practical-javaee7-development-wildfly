@@ -13,7 +13,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.jboss.bom>8.0.0.Final</version.jboss.bom>
     </properties>
     <dependencies>
         <dependency>

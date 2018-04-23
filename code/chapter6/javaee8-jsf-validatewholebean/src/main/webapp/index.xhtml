@@ -10,7 +10,9 @@
 
 
 	<h:form id="formpanel">
-
+		<div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
+                <h2>JSF 2.3 validateWholeBean Example</h2>
+                <h4>Customers accepted up to my discretion!</h4>
 		<h:panelGrid columns="2" styleClass="default">
 
 			<h:outputLabel for="name" value="Name: " />
@@ -41,6 +43,8 @@
 
 		<f:validateWholeBean value="#{customer}"
 			validationGroups="com.itbuzzpress.chapter6.validator.CustomerGroup" />
+
+                 </div>
 	</h:form>
 
 

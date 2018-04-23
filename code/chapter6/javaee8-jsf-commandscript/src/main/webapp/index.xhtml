@@ -10,14 +10,17 @@ xmlns:c="http://java.sun.com/jsp/jstl/core">
     </head>
     <body>           
        
-  <h:form id="formpanel">
-       <h:commandScript  execute="@form" name="submitForm" action="#{counterBean.count()}" render=":output"   /> 
-       Enter a Word &nbsp;<h:inputText value="#{counterBean.input}" /> <br/>
-       <h:button value="submit" onclick="submitForm();return false" />
-        
+   <h:form id="formpanel">
+	<div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
+	<h2>Demo JSF 2.3 commandScript</h2>
+        <h4>Enter a word and I'll tell you the lenght</h4>
+       	<h:commandScript  execute="@form" name="submitForm" action="#{counterBean.count()}" render=":output"   /> 
+       	Enter a Word &nbsp;<h:inputText value="#{counterBean.input}" /> <br/>
+       	<h:button value="submit" onclick="submitForm();return false" />
+        </div>
     </h:form>
     <br/>
-Word length:
+	Word length:
  <h:outputText id="output" value="#{counterBean.total}" />
  </body>
 </html>
