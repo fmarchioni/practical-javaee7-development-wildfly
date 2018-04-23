@@ -5,7 +5,7 @@
         </authentication-rules>
         <authentication-configurations>
             <configuration name="default">
-                <!-- add-user.sh -a -g employee -u francesco -p Password1! -->
+
 	        <sasl-mechanism-selector selector="DIGEST-MD5"/>
                 <set-user-name name="ejbuser"/>
                 <credentials>
@@ -44,9 +44,3 @@
     </jboss-ejb-client>
 </configuration>
 
-
-<!--
-
-
-
--->
