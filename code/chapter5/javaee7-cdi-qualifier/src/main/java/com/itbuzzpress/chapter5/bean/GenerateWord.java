@@ -24,7 +24,7 @@ public class GenerateWord {
 
 	@Produces @Anagram(value=Language.ENGLISH)  
 	public Word createEnglishAnagram(){
-
+		System.out.println("Generating English Anagram");
 		List<String>wordList = getEnglishDictionary();
 
 		return shuffle(wordList);
@@ -34,7 +34,7 @@ public class GenerateWord {
 
 	@Produces @Anagram(value=Language.ITALIAN)  
 	public Word createItalianAnagram(){
-
+                System.out.println("Generating Italian Anagram");
 		List<String>wordList = getItalianDictionary();
 
 		return shuffle(wordList);
@@ -43,10 +43,6 @@ public class GenerateWord {
 
 
 	public Word shuffle(List<String> wordList){
-
-		System.out.println("GenerateWord");
-
-
 
 		Random rand = new Random();
 
