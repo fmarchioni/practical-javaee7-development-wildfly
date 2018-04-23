@@ -10,6 +10,15 @@ mvn clean install
 ```
 
 ###### Managed Test
+
+Configure src/test/resources/arquillian.xml in to point to your Wildfly installation. Ex:
+```xml
+	<configuration>
+		<property name="jbossHome">/home/francesco/jboss/wildfly-12.0.0.Final</property>
+		<property name="managementPort">9990</property>
+		<property name="managementAddress">localhost</property>
+	</configuration>
+```
 ```shell
 mvn test -Parq-wildfly-managed
 ```
