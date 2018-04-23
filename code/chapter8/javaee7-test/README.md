@@ -4,22 +4,18 @@ Example taken from [Practical Java EE 7 Development using WildFly application se
 
 This example demonstrates how to test a basic JPA application using Arquillian 
 
-###### Build and Deploy
+###### Build 
 ```shell
-mvn clean install wildfly:deploy
+mvn clean install 
 ```
 
 ###### Managed Test
 ```shell
-mvn clean test -Parq-wildfly-managed
+mvn test -Parq-wildfly-managed
 ```
 
 ###### Remote Test
 ```shell
-mvn clean test -Parq-wildfly-remote
+mvn test -Parq-wildfly-remote
 ```
 
-###### Cloud Test (Requires setting up Openshift account + domain + application setup)
-```shell
-mvn clean test -Parquillian-openshift-express
-```

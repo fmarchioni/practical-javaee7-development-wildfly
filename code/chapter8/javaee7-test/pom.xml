@@ -13,7 +13,7 @@
     <url>http://www.itbuzzpress.com</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.arquillian.container>8.0.0.Final</version.arquillian.container>
+    
         <!-- other plugin versions -->
         <version.compiler.plugin>3.1</version.compiler.plugin>
         <version.surefire.plugin>2.4.3</version.surefire.plugin>
@@ -93,9 +93,8 @@
             <id>arq-wildfly-managed</id>
             <dependencies>
                 <dependency>
-                    <groupId>org.wildfly</groupId>
+                    <groupId>org.wildfly.arquillian</groupId>
                     <artifactId>wildfly-arquillian-container-managed</artifactId>
-                    <version>${version.arquillian.container}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
@@ -107,23 +106,12 @@
             <id>arq-wildfly-remote</id>
             <dependencies>
                 <dependency>
-                    <groupId>org.wildfly</groupId>
+                    <groupId>org.wildfly.arquillian</groupId>
                     <artifactId>wildfly-arquillian-container-remote</artifactId>
-                    <version>${version.arquillian.container}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
         </profile>
-        <profile>
-            <id>arquillian-openshift-express</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.arquillian.container</groupId>
-                    <artifactId>arquillian-openshift-express</artifactId>
-                    <version>1.0.2.Final</version>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-        </profile>
+       
     </profiles>
 </project>

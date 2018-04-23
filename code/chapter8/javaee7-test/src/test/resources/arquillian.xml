@@ -11,7 +11,7 @@
 	<container qualifier="jboss" default="true">
 
 		<configuration>
-			<property name="jbossHome">C:/wildfly-8.0.0.Final</property>
+			<property name="jbossHome">/home/francesco/jboss/wildfly-12.0.0.Final</property>
 			<property name="managementPort">9990</property>
 			<property name="managementAddress">localhost</property>
 		</configuration>
