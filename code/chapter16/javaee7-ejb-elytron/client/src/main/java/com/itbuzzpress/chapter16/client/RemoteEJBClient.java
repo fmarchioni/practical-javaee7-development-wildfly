@@ -18,7 +18,6 @@ public class RemoteEJBClient {
 		Account account = lookupAccountEJB();
 		Calculator calculator = lookupCalculatorEJB();
 		System.out.println("Going to deposit 1000$ ");
-                calculator.calculateInterest(111);
 
 		account.createAccount(1000l);
 
@@ -40,7 +39,8 @@ public class RemoteEJBClient {
 
 	private static Account lookupAccountEJB() throws NamingException {
 		final Hashtable jndiProperties = new Hashtable();
-                jndiProperties.put(Context.PROVIDER_URL, "remote+http://localhost:8080");
+                // specified in wildfly-config.xml             
+                //jndiProperties.put(Context.PROVIDER_URL, "remote+http://localhost:8080");
 
                 jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
 
@@ -52,7 +52,8 @@ public class RemoteEJBClient {
 
 	private static Calculator lookupCalculatorEJB() throws NamingException {
 		final Hashtable jndiProperties = new Hashtable();
-                jndiProperties.put(Context.PROVIDER_URL, "remote+http://localhost:8080");
+                // specified in wildfly-config.xml             
+                //jndiProperties.put(Context.PROVIDER_URL, "remote+http://localhost:8080");
                 jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		final Context context = new InitialContext(jndiProperties);
 

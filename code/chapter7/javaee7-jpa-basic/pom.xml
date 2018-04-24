@@ -13,7 +13,6 @@
     <url>http://www.itbuzzpress.com</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.jboss.bom>8.0.0.Final</version.jboss.bom>
         <!-- other plugin versions -->
         <version.compiler.plugin>3.1</version.compiler.plugin>
         <version.surefire.plugin>2.4.3</version.surefire.plugin>

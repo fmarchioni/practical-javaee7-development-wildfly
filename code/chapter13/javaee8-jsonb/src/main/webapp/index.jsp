@@ -7,18 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Enter Properties for Person</h2>
+<h2>JSON-B Demo</h2>
+<h4>Enter Properties for Person</h4>
     <form method="post" action="rest/jsonb/tojson">
-      <label>Name</label><br/>
-      <input type="text" name="name"><br />
-      <label>Surname</label><br/>
-      <input type="text" name="surname"><br />
-      <label>Address</label><br/>
-      <input type="text" name="address"><br />
-      <label>City</label><br/>
-      <input type="text" name="city"><br />    
-      <label>&nbsp;</label>  <br/>
-       <input type="submit" value="Create Json">
+      <div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
+	      <label>Name</label><br/>
+	      <input type="text" name="name"><br />
+	      <label>Surname</label><br/>
+	      <input type="text" name="surname"><br />
+	      <label>Address</label><br/>
+	      <input type="text" name="address"><br />
+	      <label>City</label><br/>
+	      <input type="text" name="city"><br />    
+	      <label>&nbsp;</label>  <br/>
+	       <input type="submit" value="Create Json">
+       </div> 
     </form>
     
  
@@ -33,11 +36,13 @@
 
 }</h3>
 <form method="post" action="rest/jsonb/tojava">
+<div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
 Json<br/>
 <input type="text" name="json" width="400"/>  <br>
  
  <br/>
   <input type="submit" value="Create Java">
+</div>
 </form>
 </body>
 </html>

@@ -4,6 +4,13 @@ Example taken from [Practical Java EE 7 Development using WildFly application se
 
 This example demonstrates the basic usage of a remote JMS 2.0 client
 
+###### Pre-requisites:
+You need the following Queue Definition in a full/full-ha profile:
+
+```xml
+ <jms-queue name="ExampleQueue" entries="queue/exampleQueue java:/jboss/exported/jms/queue/exampleQueue"/>
+```
+
 ###### Build Deploy and Test
 ```shell
 mvn clean install test  
@@ -12,11 +19,6 @@ mvn clean install test
 ```shell
 mvn clean install wildfly:undeploy  
 ```
-###### WildFly 10 users
-Note: If you are running WildFly 10 and above, you should update its property in pom.xml:
 
-```xml
-<version.wildfly>10.0.0.Final</version.wildfly>
-```
 
- 
+

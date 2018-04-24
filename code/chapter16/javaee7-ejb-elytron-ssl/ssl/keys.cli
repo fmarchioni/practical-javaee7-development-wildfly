@@ -1,11 +1,11 @@
 #Script to create Elytron keystore-trust-manager-server-ssl-context using the default ApplicationDomain that ships with Wildfly
+connect
 
 /subsystem=elytron/key-store=server-key-store:add(path=server.keystore, relative-to=jboss.server.config.dir, credential-reference={clear-text=123456}, type=JKS)
 /subsystem=elytron/key-store=server-trust-store:add(path=server.truststore, relative-to=jboss.server.config.dir, credential-reference={clear-text=123456}, type=JKS)
 /subsystem=elytron/key-manager=example-key-manager:add(key-store=server-key-store, credential-reference={clear-text=123456})
 /subsystem=elytron/trust-manager=example-trust-manager:add(key-store=server-trust-store)
 /subsystem=elytron/server-ssl-context=example-ssl-context:add(trust-manager=example-trust-manager, key-manager=example-key-manager, need-client-auth=true, want-client-auth=true)
-/subsystem=ejb3/application-security-domain=other:add(security-domain=ApplicationDomain)
 
 batch
 
@@ -14,10 +14,7 @@ batch
 
 run-batch
 
-/subsystem=remoting/http-connector=https-remoting-connector:add(connector-ref=https, sasl-authentication-factory=application-sasl-authentication)
+
 
 reload
 
-
-# You need to add un user that belongs to the employee group. Ex:
-# add-user.sh -a -g employee -u ejbuser -p password123 

@@ -13,26 +13,19 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
- 
+        <version.exec.plugin>1.2.1</version.exec.plugin>
     </properties>
 
     <dependencies>
         <!-- ejb client using the EAP product BOM -->
-    <dependency>
+      <dependency>
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-ejb-client-bom</artifactId>
             <type>pom</type>
             <scope>compile</scope>
-<version>12.0.0.Final</version>
-</dependency>
-        <!-- logging -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.12</version>
-            <scope>compile</scope>
-        </dependency>
-
+            <version>12.0.0.Final</version>
+      </dependency>
+       
         <dependency>
             <groupId>com.itbuzzpress.chapter16</groupId>
             <artifactId>javaee7-ejb-server-elytron</artifactId>
@@ -44,10 +37,11 @@
 
     <build>
         <plugins>
-            <plugin>
+
+	    <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>${version.exec.plugin}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -58,19 +52,12 @@
                 <configuration>
                     <executable>java</executable>
                     <workingDirectory>${project.build.directory}/exec-working-directory</workingDirectory>
-                    <classpathScope>runtime</classpathScope>
                     <arguments>
+                        <!-- automatically creates the classpath using all project dependencies, 
+							also adding the project build directory -->
                         <argument>-classpath</argument>
                         <classpath/>
-                        <!-- uncomment for debugging -->
-                        <!--<argument>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y</argument>-->
-                        
-                        <argument>-Dremote.ejb.url=${remote.ejb.url}</argument>
-                        <argument>-Dkeystore.path=${project.basedir}/src/main/resources/client.keystore</argument>
-                        <argument>-Dtruststore.path=${project.basedir}/src/main/resources/client.truststore</argument>
-                         
                         <argument>com.itbuzzpress.chapter16.client.RemoteEJBClient</argument>
-                        <!-- the main class -->
                     </arguments>
                 </configuration>
             </plugin>
@@ -85,36 +72,5 @@
         </plugins>
 
     </build>
-<!--
-
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>mead</id>
-            <name>MEAD EAP7 build</name>
-            <url>
-                http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven
-            </url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
--->
+ 
 </project>

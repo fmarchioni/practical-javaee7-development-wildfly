@@ -4,6 +4,13 @@ Example taken from [Practical Java EE 7 Development using WildFly application se
 
 This example demonstrates the basic usage of a JMS 2.0 application
 
+###### Pre-requisites:
+You need the following Queue Definition in a full/full-ha profile:
+
+```shell
+ <jms-queue name="ExampleQueue" entries="queue/exampleQueue java:/jboss/exported/jms/queue/exampleQueue"/>
+```
+
 ###### Build and Deploy
 ```shell
 mvn clean install wildfly:deploy  

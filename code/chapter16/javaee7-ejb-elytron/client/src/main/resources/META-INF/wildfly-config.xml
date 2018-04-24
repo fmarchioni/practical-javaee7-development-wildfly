@@ -16,12 +16,10 @@
      
     </authentication-client>
     <jboss-ejb-client xmlns="urn:jboss:wildfly-client-ejb:3.0">
-        <connections>
-            
-             <!-- 
-
-<connection uri="remote+https://127.0.0.1:8443"/>
--->
+        <connections>           
+                     
+		<connection uri="remote+http://127.0.0.1:8080"/>
+       
         </connections>
     </jboss-ejb-client>
 </configuration>

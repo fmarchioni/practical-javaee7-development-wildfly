@@ -8,14 +8,11 @@
     <groupId>javaee7-batch-batchlet</groupId>
     <artifactId>javaee7-batch-batchlet</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0.Beta2</version>
+    <version>1.0.0</version>
     <name>Demo Java EE 7 Batchlet</name>
     <url>http://www.itbuzzpress.com</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
     </properties>
     <dependencies>
         <dependency>

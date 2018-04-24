@@ -51,9 +51,6 @@ public class RemoteEJBClient {
 	private static Calculator lookupCalculatorEJB() throws NamingException {
 		final Hashtable jndiProperties = new Hashtable();
 
-                 // Specified in wildfly-config.xml
-                // jndiProperties.put(Context.PROVIDER_URL, "remote+https://127.0.0.1:8443");
-
                 jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		final Context context = new InitialContext(jndiProperties);
 

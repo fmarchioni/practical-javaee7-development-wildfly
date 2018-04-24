@@ -9,18 +9,6 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-
-
-
-
-
-
-
-
-
-
-
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -42,7 +30,7 @@ import com.itbuzzpress.chapter11.model.SimpleProperty;
 
 
 
-//Example URL: http://localhost:8080/javaee7-rest/rest/simple/text
+//Example URL: http://localhost:8080/javaee7-rest-client/rest/simple/text
 
 @Path("/simple")
 public class SimpleRESTService {

@@ -2,8 +2,8 @@
 <job id="simplejobexception" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	version="1.0">
 	<properties>
-		<property name="input_file" value="C:\temp\input.csv" />
-		<property name="output_file" value="C:\temp\output.json" />
+		<property name="input_file" value="/tmp/input.csv" />
+		<property name="output_file" value="/tmp/output.json" />
 	</properties>
 
 	<step id="step1">

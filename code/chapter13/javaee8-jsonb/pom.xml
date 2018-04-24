@@ -3,44 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.sample</groupId>
-	<artifactId>jsonbdemo</artifactId>
+	<parent>
+		<groupId>com.itbuzzpress.root</groupId>
+		<artifactId>javaee7-root</artifactId>
+		<version>1.0</version>
+	</parent>
+
+
+	<groupId>com.itbuzzpress.chapter13</groupId>
+	<artifactId>javaee8-jsonb</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-
-	<properties>
-		<version.jboss.spec.javaee.7.0>1.1.1.Final</version.jboss.spec.javaee.7.0>
-		<version.server.bom>12.0.0.Final</version.server.bom>
-
-	</properties>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.wildfly.bom</groupId>
-				<artifactId>wildfly-javaee7-with-tools</artifactId>
-				<version>${version.server.bom}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-			<!-- Define the version of the JBoss Java EE APIs we want to use -->
-			<!-- JBoss distributes a complete set of Java EE APIs including a Bill 
-				of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection) 
-				of artifacts. We use this here so that we always get the correct versions 
-				of artifacts. Here we use the jboss-javaee-7.0 stack (you can read this as 
-				the JBoss stack of the Java EE APIs). You can actually use this stack with 
-				any version of JBoss EAP that implements Java EE. -->
-			<dependency>
-				<groupId>org.jboss.spec</groupId>
-				<artifactId>jboss-javaee-7.0</artifactId>
-				<version>${version.jboss.spec.javaee.7.0}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-		</dependencies>
-	</dependencyManagement>
+ 
+ 
 	<dependencies>
 
 		<dependency>

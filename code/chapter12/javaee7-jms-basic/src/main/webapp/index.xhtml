@@ -8,8 +8,9 @@
 <h:body>
 
 	<h:form  >
-
-		<h2>Type message to send</h2>
+                <div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
+		<h2>JMS Sender application</h2>
+                <h4>Type message to send</h4>
 		<h:outputText value="Message" style="font-weight:bold" />
 		<br />
 		<h:inputText id="name" value="#{messageSender.message}" />
@@ -20,7 +21,7 @@
 			 value="Send" />	
 
 		<h:messages globalOnly="true" showDetail="false" showSummary="true" />
-		 
+		</div>
 	</h:form>
 
 

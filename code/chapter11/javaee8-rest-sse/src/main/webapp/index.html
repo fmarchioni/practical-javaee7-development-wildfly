@@ -6,12 +6,14 @@
     </head>
     <body onload="getRandomValues()">
         <h2>Welcome to the Lottery Game</h2>
-        <table>
-            <tr>
-                <td>Number Extracted: </td><td>&nbsp;<span id="number"></span></td>
-            </tr>
+        <h4>Numbers extracted in a few seconds.....</h2>
+
+	<div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
+
+                <p>Number Extracted: &nbsp;<span id="number"></span></p>
+            
              
-        </table>
+        </div>
         <script>
             function getRandomValues() {
                 var source = new EventSource("rest/events/");

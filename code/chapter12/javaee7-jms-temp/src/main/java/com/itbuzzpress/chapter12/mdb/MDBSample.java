@@ -8,7 +8,7 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 @MessageDriven(activationConfig = {
-		@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:jboss/jms/queue/tempQueue"),
+		@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "queue/tempQueue"),
 		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"), })
 public class MDBSample implements MessageListener {
 

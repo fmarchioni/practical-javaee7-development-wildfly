@@ -8,15 +8,12 @@
     <groupId>com.itbuzzpress.chapter12</groupId>
     <artifactId>javaee7-jms-basic</artifactId>
     <packaging>war</packaging>
-    <version>1.0.0.Beta2</version>
+    <version>1.0.0</version>
     <name>JMS Basic application</name>
     <url>http://www.itbuzzpress.com</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.exec.plugin>1.1.1</version.exec.plugin>
-        <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
     </properties>
     <dependencies>
         <dependency>

@@ -23,8 +23,8 @@
             <artifactId>wildfly-ejb-client-bom</artifactId>
             <type>pom</type>
             <scope>compile</scope>
-<version>12.0.0.Final</version>
-</dependency>
+            <version>12.0.0.Final</version>
+    </dependency>
 
 
         <dependency>
@@ -79,36 +79,5 @@
         </plugins>
 
     </build>
-<!--
-
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>mead</id>
-            <name>MEAD EAP7 build</name>
-            <url>
-                http://download.eng.bos.redhat.com/brewroot/repos/jb-eap-7.0-rhel-7-maven-build/latest/maven
-            </url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
--->
+ 
 </project>

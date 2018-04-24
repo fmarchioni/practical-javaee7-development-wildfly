@@ -29,7 +29,7 @@ public class MessageSender {
 	@Inject
 	JMSContext context;
 
-	@Resource(mappedName = "java:/jms/queue/exampleQueue")
+	@Resource(mappedName = "queue/exampleQueue")
 	private Queue queue;
 
 	public void sendMessage() {

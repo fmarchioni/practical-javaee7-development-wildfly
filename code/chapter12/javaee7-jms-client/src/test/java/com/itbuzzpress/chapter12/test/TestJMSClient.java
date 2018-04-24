@@ -17,7 +17,8 @@ public class TestJMSClient {
 
 	private String MESSAGE = "Hello, World!";
 	private String CONNECTION_FACTORY = "jms/RemoteConnectionFactory";
-	private String DESTINATION = "jms/queue/exampleQueue";
+        private String DESTINATION = "jms/queue/exampleQueue";
+ 
 
 	@Test
 	public void testSendReceive() throws Exception {
@@ -30,7 +31,7 @@ public class TestJMSClient {
 			// Set up the namingContext for the JNDI lookup
 			final Properties env = new Properties();
 			env.put(Context.INITIAL_CONTEXT_FACTORY,
-					"org.jboss.naming.remote.client.InitialContextFactory");
+					"org.wildfly.naming.client.WildFlyInitialContextFactory");
 			env.put(Context.PROVIDER_URL, "http-remoting://127.0.0.1:8080");
 			env.put(Context.SECURITY_PRINCIPAL, "jmsuser");
 			env.put(Context.SECURITY_CREDENTIALS, "Password1!");
