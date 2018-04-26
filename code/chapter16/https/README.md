@@ -12,7 +12,9 @@ This folder contains the script generatekeys.sh to generate client/server keysto
 Then copy the keystores and trustores in the $JBOSS_HOME/standalone/configuration folder
 
 ```shell
-cp *.keystore *.truststore $JBOSS_HOME/standalone/configuration
+cp *.keystore $JBOSS_HOME/standalone/configuration
+
+cp *.truststore $JBOSS_HOME/standalone/configuration
 ```
 
 
