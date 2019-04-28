@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.itbuzzpress.chapter11</groupId>
+  <artifactId>thorntail-rest-filters-client</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0.0</version>
+  <name>JAX-RS Filters Demo</name>
+  <url>http://www.itbuzzpress.com</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly.bom</groupId>
+        <artifactId>wildfly-javaee8-with-tools</artifactId>
+        <version>16.0.0.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-client</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-jaxb-provider</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

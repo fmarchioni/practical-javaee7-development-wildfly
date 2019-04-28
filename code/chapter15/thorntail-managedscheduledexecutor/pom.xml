@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.itbuzzpress.root</groupId>
+    <artifactId>thorntail-root</artifactId>
+    <version>1.0</version>
+    <relativePath>../..</relativePath>
+  </parent>
+  <groupId>com.itbuzzpress.chapter15</groupId>
+  <artifactId>thorntail-managedscheduledexecutor</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0</version>
+  <name>Thorntail Managed Scheduled Executor Demo</name>
+  <url>http://www.itbuzzpress.com</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>undertow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>ejb-remote</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>ejb</artifactId>
+    </dependency>
+  </dependencies>
+</project>

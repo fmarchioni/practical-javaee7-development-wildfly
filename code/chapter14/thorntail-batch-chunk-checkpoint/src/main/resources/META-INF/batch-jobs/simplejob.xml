@@ -1,0 +1,17 @@
+<job id="simpleJob" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	version="1.0">
+	<properties>
+		<property name="input_file" value="/tmp/input.csv" />
+		<property name="output_file" value="/tmp/output.json" />
+	</properties>
+
+	<step id="step1">
+		<chunk item-count="3" checkpoint-policy="custom">
+			<reader ref="batchItemReader" />
+			<processor ref="batchItemProcessor" />
+			<writer ref="batchItemWriter" />
+			<checkpoint-algorithm ref="batchCheckpointAlgorithm" />
+		</chunk>
+
+	</step>
+</job>

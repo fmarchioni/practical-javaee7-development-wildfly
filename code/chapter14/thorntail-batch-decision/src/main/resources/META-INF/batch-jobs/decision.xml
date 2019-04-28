@@ -1,0 +1,22 @@
+<job id="decision" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	version="1.0">
+	<properties>
+		<property name="filesystem" value="/home/francesco" />
+	</properties>
+	<step id="step1" next="decisionNode">
+		<batchlet ref="simpleBatchlet" />
+	</step>
+
+	<decision id="decisionNode" ref="decisionNode">
+
+
+		<next on="DSK_SPACE_OK" to="debugStep" />
+		<fail on="DSK_SPACE_LOW" />
+		<end on="NOT_AVAILABLE" />
+	</decision>
+
+	<step id="debugStep">
+		<batchlet ref="simpleBatchlet" />
+	</step>
+</job>
+ 

@@ -1,0 +1,10 @@
+thorntail:
+  deployment:
+    example-keycloak-1.0.war:
+      web:
+        login-config:
+          auth-method: KEYCLOAK
+        security-constraints:
+          - url-pattern: /*
+            methods: [GET]
+            roles: [Manager]

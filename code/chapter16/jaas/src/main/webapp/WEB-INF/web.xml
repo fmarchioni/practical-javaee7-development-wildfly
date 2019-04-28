@@ -1,0 +1,29 @@
+<web-app id="tomcat-demo" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ 
+ 
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+         	<role-name>user</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+				<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+ 
+	<login-config>
+		<auth-method>BASIC</auth-method>
+        <realm-name>default</realm-name>
+	</login-config>
+
+</web-app>
