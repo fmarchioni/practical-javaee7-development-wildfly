@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.itbuzzpress.root</groupId>
+    <artifactId>thorntail-root</artifactId>
+    <version>1.0</version>
+    <relativePath>../..</relativePath>
+  </parent>
+  <groupId>com.itbuzzpress.chapter14</groupId>
+  <artifactId>thorntail-batch-chunk-checkpoint</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0</version>
+  <name>Thorntail Batch Chunk Checkpoint Demo</name>
+  <url>http://www.itbuzzpress.com</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>ejb-remote</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>undertow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>jsonb</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>cdi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>batch-jberet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>ejb</artifactId>
+    </dependency>
+  </dependencies>
+</project>

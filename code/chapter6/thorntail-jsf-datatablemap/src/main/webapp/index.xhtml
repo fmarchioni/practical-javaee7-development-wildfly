@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+        <h:form>
+	    <div style="background-color: #E6E6FF; border-radius: 15px;width: 40%;padding: 20px">
+            <h2>JSF 2.3 Datatable using a Map</h2>
+            <h:dataTable value="#{countryBean.map}" var="c" border="1">
+                <h:column>
+                    <f:facet name="header">Country</f:facet>
+                        #{c.key}             
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Capital</f:facet>
+                        #{c.value.capital}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Continent</f:facet>
+                        #{c.value.continent}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Language</f:facet>
+                        #{c.value.language}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Population</f:facet>
+                        #{c.value.population}
+                </h:column>
+                
+            </h:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

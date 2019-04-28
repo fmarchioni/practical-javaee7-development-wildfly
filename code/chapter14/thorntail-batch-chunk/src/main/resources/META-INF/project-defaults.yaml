@@ -1,0 +1,21 @@
+swarm:
+  batch-jberet:
+    default-job-repository: h2
+    jdbc-job-repositories:
+      h2:
+      data-source: h2
+    thread-pools:
+      batch:
+        max-threads: 20
+  datasources:
+    jdbc-drivers:
+      h2:
+        driver-class-name: org.h2.Driver
+        xa-datasource-class-name: org.h2.jdbcx.JdbcDataSource
+        driver-module-name: com.h2database.h2
+    data-sources:
+      ExampleDS:
+        driver-name: h2
+        connection-url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+        user-name: sa
+        password: sa
