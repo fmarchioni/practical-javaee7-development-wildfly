@@ -1,18 +1,25 @@
-Thorntail HTTPS Demo
+Securing WildFly with SSL
 =====================================
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
-This example demonstrates how to configure HTTPS in a Thorntail runtime
+This folder contains the script generatekeys.sh to generate client/server keystores and trustores
 
-###### Deploy
+###### Generate keys
+
 ```shell
-mvn clean thorntail:run
+./generatekeys.sh  
 ```
-###### Test
+
+Then copy the keystores and trustores in the $JBOSS_HOME/standalone/configuration folder
+
 ```shell
-http://localhost:8080 
+cp *.keystore $JBOSS_HOME/standalone/configuration
+
+cp *.truststore $JBOSS_HOME/standalone/configuration
 ```
- 
 
 
+###### Install keys on the application server
 
+```shell
+/bin/jboss-cli.sh --file=script.cli
+```

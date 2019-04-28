@@ -1,0 +1,23 @@
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+	<defaultProtocol type="Servlet 3.0" />
+
+	<!-- Example configuration for a remote WildFly instance -->
+	<!-- By default, arquillian will use the JBOSS_HOME environment variable. 
+		Alternatively, the configuration below can be uncommented. -->
+	<container qualifier="jboss" default="true">
+
+		<configuration>
+			<!-- By default it uses JBOSS_HOME
+                          <property name="jbossHome">/path/wildlfy/</property>
+                         -->
+			<property name="managementPort">9990</property>
+			<property name="managementAddress">localhost</property>
+		</configuration>
+
+	</container>
+
+</arquillian>

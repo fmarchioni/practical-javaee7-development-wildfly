@@ -2,6 +2,7 @@ package com.itbuzzpress.chapter12;
 
 import java.util.logging.Logger;
 import java.util.Properties;
+
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.JMSConsumer;
@@ -30,8 +31,7 @@ public class JMSClient {
 			final Properties env = new Properties();
 			env.put(Context.INITIAL_CONTEXT_FACTORY,
 					"org.wildfly.naming.client.WildFlyInitialContextFactory");
-			env.put(Context.PROVIDER_URL, "remote+http://localhost:8080");
-	
+			env.put(Context.PROVIDER_URL, "http-remoting://127.0.0.1:8080");
 			env.put(Context.SECURITY_PRINCIPAL, "jmsuser");
 			env.put(Context.SECURITY_CREDENTIALS, "Password1!");
 			namingContext = new InitialContext(env);
@@ -49,6 +49,14 @@ public class JMSClient {
 
 			context.createProducer().send(destination, MESSAGE);
 			System.out.println("Sent message " + MESSAGE);
+
+			// Create the JMS consumer
+			JMSConsumer consumer = context.createConsumer(destination);
+			// Then receive the same number of messages that were sent
+
+			String text = consumer.receiveBody(String.class, 5000);
+			if (text == null) System.out.println("No message Received! Maybe another Consumer listening on the Queue ??");
+			System.out.println("Received message with content " + text);
 			
 
 		} catch (Exception e) {

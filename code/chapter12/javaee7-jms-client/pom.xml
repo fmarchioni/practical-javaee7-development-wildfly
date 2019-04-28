@@ -1,34 +1,36 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.itbuzzpress.root</groupId>
+    <artifactId>javaee8-root</artifactId>
+    <version>1.0</version>
+    <relativePath>../..</relativePath>
+  </parent>
   <groupId>com.itbuzzpress.chapter12</groupId>
-  <artifactId>thorntail-jms-client</artifactId>
+  <artifactId>javaee7-jms-client</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
   <name>JMS Remote client example</name>
   <description>JMS Remote client example</description>
-  <url>http://www.itbuzzpress.com</url>
+  <url>http://wildfly.org</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <distribution>repo</distribution>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+    </license>
+  </licenses>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- other plugin versions -->
     <version.compiler.plugin>3.1</version.compiler.plugin>
     <version.jar.plugin>2.2</version.jar.plugin>
     <version.exec.plugin>1.1.1</version.exec.plugin>
-    <version.server.bom>16.0.0.Final</version.server.bom>
+    <!-- maven-compiler-plugin -->
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.wildfly.bom</groupId>
-        <artifactId>wildfly-javaee8-with-tools</artifactId>
-        <version>${version.server.bom}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.wildfly</groupId>
@@ -52,6 +54,8 @@
         <version>2.4</version>
         <configuration/>
       </plugin>
+      <!-- Compiler plugin enforces Java 1.6 compatibility and activates annotation 
+				processors -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${version.compiler.plugin}</version>

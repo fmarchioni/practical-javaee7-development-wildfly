@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>com.itbuzzpress.root</groupId>
+    <artifactId>javaee8-root</artifactId>
+    <version>1.0</version>
+    <relativePath>../..</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.itbuzzpress.chapter7</groupId>
+  <artifactId>javaee7-jpa-basic</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0.Beta2</version>
+  <name>Basic JPA example</name>
+  <url>http://www.itbuzzpress.com</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- other plugin versions -->
+    <version.compiler.plugin>3.1</version.compiler.plugin>
+    <version.surefire.plugin>2.4.3</version.surefire.plugin>
+    <version.war.plugin>2.1.1</version.war.plugin>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>javax.persistence-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Import the CDI API -->
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+  </build>
+</project>

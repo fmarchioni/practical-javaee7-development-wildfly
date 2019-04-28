@@ -1,8 +1,0 @@
-thorntail:
-  https:
-    keystore:
-      path: ${project.build.directory}/keystore.jks
-      password: password
-    key:
-      alias: httpskey
-      password: password

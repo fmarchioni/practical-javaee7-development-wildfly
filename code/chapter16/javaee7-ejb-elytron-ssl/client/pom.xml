@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.itbuzzpress.chapter16</groupId>
+  <artifactId>javaee7-ejb-client-elytron</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+  <properties>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <!-- ejb client using the EAP product BOM -->
+    <dependency>
+      <groupId>org.wildfly</groupId>
+      <artifactId>wildfly-ejb-client-bom</artifactId>
+      <version>16.0.0.Final</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.itbuzzpress.chapter16</groupId>
+      <artifactId>javaee7-ejb-server-elytron-ssl</artifactId>
+      <type>ejb-client</type>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <workingDirectory>${project.build.directory}/exec-working-directory</workingDirectory>
+          <classpathScope>runtime</classpathScope>
+          <arguments>
+            <argument>-classpath</argument>
+            <classpath/>
+            <!-- uncomment for debugging -->
+            <!--<argument>-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y</argument>-->
+            <argument>-Dremote.ejb.url=${remote.ejb.url}</argument>
+            <argument>-Dkeystore.path=${project.basedir}/src/main/resources/client.keystore</argument>
+            <argument>-Dtruststore.path=${project.basedir}/src/main/resources/client.truststore</argument>
+            <argument>com.itbuzzpress.chapter16.client.RemoteEJBClient</argument>
+            <!-- the main class -->
+          </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

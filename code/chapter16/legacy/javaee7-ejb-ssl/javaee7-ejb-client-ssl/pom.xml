@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.itbuzzpress.root</groupId>
+    <artifactId>javaee8-root</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>com.itbuzzpress.chapter16</groupId>
+  <artifactId>javaee7-ejb-client-ssl</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>javaee7-ejb-client-ssl</name>
+  <url>http://www.itbuzzpress.com</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- other plugin versions -->
+    <version.compiler.plugin>3.1</version.compiler.plugin>
+    <version.exec.plugin>1.2.1</version.exec.plugin>
+    <version.war.plugin>2.1.1</version.war.plugin>
+    <wildfly.home>C:\wildfly-8.0.0.Final</wildfly.home>
+    <!-- maven-compiler-plugin -->
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.wildfly</groupId>
+        <artifactId>wildfly-ejb-client-bom</artifactId>
+        <version>16.0.0.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <!-- Import the transaction spec API, we use runtime scope because we aren't 
+			using any direct reference to the spec API in our client code -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.transaction</groupId>
+      <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Import the EJB 3.1 API, we use runtime scope because we aren't using 
+			any direct reference to EJB spec API in our client code -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- We depend on the EJB remote business interfaces of this application -->
+    <dependency>
+      <groupId>com.itbuzzpress.chapter16</groupId>
+      <artifactId>javaee7-ejb-server-ssl</artifactId>
+      <type>ejb-client</type>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- JBoss EJB client API jar. We use runtime scope because the EJB client 
+			API isn't directly used in this example. We just need it in our runtime classpath -->
+    <dependency>
+      <groupId>org.wildfly</groupId>
+      <artifactId>wildfly-naming</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly</groupId>
+      <artifactId>wildfly-naming-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.common</groupId>
+      <artifactId>wildfly-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-ejb-client</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.compiler.plugin}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <!-- mvn exec:exec -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${version.exec.plugin}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <workingDirectory>${project.build.directory}/exec-working-directory</workingDirectory>
+          <arguments>
+            <argument>-Djavax.net.ssl.keyStore=${wildfly.home}\standalone\configuration\client.keystore</argument>
+            <argument>-Djavax.net.ssl.trustStore=${wildfly.home}\standalone\configuration\client.truststore</argument>
+            <argument>-Djavax.net.ssl.keyStorePassword=mypassword</argument>
+            <argument>-Djavax.net.ssl.trustStorePassword=mypassword</argument>
+            <!-- automatically creates the classpath using all project dependencies, 
+							also adding the project build directory -->
+            <argument>-classpath</argument>
+            <classpath/>
+            <argument>com.itbuzzpress.chapter16.client.RemoteEJBClient</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
