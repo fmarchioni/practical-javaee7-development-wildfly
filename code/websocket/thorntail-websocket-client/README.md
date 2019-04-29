@@ -1,7 +1,7 @@
 Thorntail Web sockets client example
 =====================================
 
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
+Example taken from [Practical Enterprise & Microservices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
 This example demonstrates the basic usage of Web sockets communication using a Thorntail runtime and a Java client
 

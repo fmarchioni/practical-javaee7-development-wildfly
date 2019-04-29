@@ -1,7 +1,7 @@
 Thorntail CDI example with Interceptors 
 =====================================
 
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
+Example taken from [Practical Enterprise & Microservices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
 This example demonstrates a basic JSF + CDI application with *Interceptor*
 

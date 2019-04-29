@@ -1,7 +1,7 @@
 Thorntail Non-Blocking I/O Asynchronous Servlet example
 =====================================
 
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
+Example taken from [Practical Enterprise & Microservices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
 This example demonstrates the usage of Non Blocking I/O Asynchronous Servlet. 
 

@@ -1,6 +1,6 @@
 Thorntail HTTPS Demo
 =====================================
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
+Example taken from [Practical Enterprise & Microservices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
 This example demonstrates how to configure HTTPS in a Thorntail runtime
 

@@ -1,7 +1,7 @@
 Thorntail JSF WebSocket example
 =====================================
 
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
+Example taken from [Practical Enterprise & Microservices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
 This example demonstrates a JSF2.3 features which enables using WebSockets in a JSF application
 

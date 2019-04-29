@@ -1,7 +1,7 @@
 Thorntail JSF application using Composite components
 =====================================
 
-Example taken from [Practical Enterprise & Microsevices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
+Example taken from [Practical Enterprise & Microservices development](http://www.itbuzzpress.com/ebooks/java-ee-7-development-on-wildfly.html)
 
 This example demonstrates a basic JSF application using Facelets and Composite components
 
